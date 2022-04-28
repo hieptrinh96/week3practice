@@ -3,15 +3,23 @@
     Write a function that accepts two numbers. 
     The function should return an array of all even numbers between the two arguments inclusively.
 
+    */
+   
+   function evenNumberRange(num1, num2) {
+       if(num1 > num2) {
+           return [];
+        }
+        if(num1 % 2 !== 0){
+            return [...evenNumberRange(num1 + 1, num2)]
+        }
+        if(num1 % 2 ===0 ){
+            return [num1, ...evenNumberRange(num1 += 2, num2)]
+        }
+    }
+    
     console.log(evenNumberRange(-3, 2)); // prints [-2, 0, 2]
     console.log(evenNumberRange(22, 25)); // prints [22, 24]
     console.log(evenNumberRange(2, 0)); // prints []
-*/
-
-function evenNumberRange(num1, num2) {
-    // Your code here
-}
-
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = evenNumberRange;
