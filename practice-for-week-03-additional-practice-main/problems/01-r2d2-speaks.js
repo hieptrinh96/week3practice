@@ -17,26 +17,41 @@
     
     */
    
-   function r2d2Speaks(code, time = 0) {
-       debugger
-       if(code.length === 0 ){
-           return;
-        }
-        let firstEl = code.shift()
-        if(firstEl === 0){
-            setTimeout(() => {
-                console.log('beep')
-            },time += 400)
-        }
-        else { 
-            setTimeout(() =>{
-                console.log('boop')
-            },time += 800)
-        }
-        return r2d2Speaks(code, time);
+//    function r2d2Speaks(code, time = 0) {
+
+//        debugger
+//        if(code.length === 0 ){
+//            return;
+//         }
+//         let firstEl = code.shift()
+//         if(firstEl === 0){
+//             setTimeout(() => {
+//                 console.log('beep')
+//             },time += 400)
+//         }
+//         else { 
+//             setTimeout(() =>{
+//                 console.log('boop')
+//             },time += 800)
+//         }
+//         return r2d2Speaks(code, time);
+// }
+    r2d2Speaks = (code) => {
+    if (code.length === 0) return;
+    let firstEl = code.shift();
+    if (firstEl === 0) {
+        console.log('beep');
+        setTimeout(()=> {
+            r2d2Speaks(code);
+        }, 400);
     }
-    
-    
+    else if (firstEl === 1) {
+        console.log('boop');
+        setTimeout(() => {
+            r2d2Speaks(code);
+        }, 800)
+    }
+}
     
     let code = [0, 1, 1, 0];
     r2d2Speaks(code);
