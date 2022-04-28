@@ -8,18 +8,26 @@
     Similarly if the end index is greater than the length of the array, the returned function should
     slice up to the end of the array. See below for examples.
 
+    */
+   
+   function dynamicSlice(start, end) {
+       let newArr = [];
+       return arr => {
+           for (let i = start; i <= end; i++) {
+               let ele = i;
+               
+                newArr.push(arr[ele]);
+            }
+            return newArr;
+        }
+    }
     const slicer = dynamicSlice(2,4);
     console.log(slicer([0, 1, 2, 3])); // prints [ 2, 3 ]
     console.log(slicer([2, 4, 'hello', false])); // prints ['hello', false]
-
+ 
     const slicer2 = dynamicSlice(-2, 10);
     console.log(slicer2([0,1,2,3])); // prints [0, 1, 2, 3]
-*/
-
-function dynamicSlice(start, end) {
-    // Your code here
-}
-
+    
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = dynamicSlice;
