@@ -15,7 +15,8 @@
        return arr => {
            for (let i = start; i <= end; i++) {
                let ele = i;
-               if (arr.includes(arr[ele])) newArr.push(arr[ele]);
+               if (start > 0) newArr.push(arr[ele])
+               if (end > 0) newArr.push(arr[ele])
             }
             return newArr;
         }
