@@ -14,20 +14,30 @@ specified types.
 
 Examples:
 
-const preserveFunc = preserveTypes([1, 'one', 2, 'two', 3, 'three']);
-console.log(preserveFunc('number')); // prints [1, 2, 3]
-console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
 
+
+*/
+// the array has elements of any type
+// the return function has an endless amount of strings that can be any type 
+// return a copy of the input array with only elements of the specified types 
+
+// preserveTypes takes an array of different element types 
+// the return function takes a string 
+// depending on wat that string is, is the type that is returned in a new array 
+
+function preserveTypes(array) {
+    return (...strings) => {
+        return strings.map(string => array.filter(el => typeof el === string))
+    }
+}
 const preserveFunc2 = preserveTypes([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
 console.log(preserveFunc2('number')); // prints [2, 3]
 console.log(preserveFunc2('object')); // prints [ { color: 'red' }, [4, 5] ];
+const preserveFunc = preserveTypes([1, 'one', 2, 'two', 3, 'three']);
+console.log(preserveFunc('number')); // prints [1, 2, 3]
+console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
 console.log(preserveFunc2('boolean', 'string', 'undefined')); // prints [ undefined, 'world', true, 'hello', false ]
 
-*/
-
-function preserveTypes(array) {
-    // Your code here
-}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
